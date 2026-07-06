@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le shadow AI chez les ingénieurs</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S1 — HERO
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s1-hero" class="section--hero">
+  <div class="hero">
+    <p class="hero__eyebrow">Data journalisme · Shadow AI · 2025–2026</p>
+
+    <p class="hero__prompt" role="heading" aria-level="1">
+      <span id="hero-typewriter" aria-label="Le shadow AI chez les ingénieurs — imprudence individuelle ou échec collectif de gouvernance ?"></span><span class="cursor" id="hero-cursor" aria-hidden="true"></span>
+    </p>
+
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-value hero__stat-value--official">90&nbsp;%</span>
+        <span class="hero__stat-label">des dirigeants se disent confiants dans leur visibilité sur l'usage IA</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">52&nbsp;%</span>
+        <span class="hero__stat-label">des knowledge workers admettent utiliser des outils IA non approuvés</span>
+      </div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">58&nbsp;%</span>
+        <span class="hero__stat-label">des dirigeants rapportent un incident de sécurité lié à l'IA (12&nbsp;derniers mois)</span>
+      </div>
+    </div>
+
+    <p class="hero__source">
+      Source&nbsp;: <a href="https://www.theregister.com/ai-ml/2026/05/27/bosses-blinded-by-confidence-about-shadow-ai-use-by-workers/5247275" target="_blank" rel="noopener">Okta&nbsp;/ Apprize360, "AI Agents at Work 2026"</a> — n=292&nbsp;dirigeants + 492&nbsp;knowledge workers, 7&nbsp;pays
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S2 — AMPLEUR MONDE
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s2-world" class="section section--split">
+  <div class="section__text">
+    <span class="section-number">01 / 05</span>
+    <p class="eyebrow">Ampleur mondiale</p>
+    <h2 class="section__title">Un phénomène global, des intensités très inégales</h2>
+    <p class="section__body">
+      Dans sept pays couverts par l'étude Okta&nbsp;/ Apprize360, l'usage d'outils IA non sanctionnés est généralisé — mais les taux varient du simple au double selon le contexte culturel et réglementaire.
+    </p>
+    <p class="section__body">
+      Les États-Unis dominent avec <strong>67&nbsp;%</strong> des salariés utilisant de l'IA hors du cadre officiel. À l'autre extrême, France et Allemagne affichent environ <strong>30&nbsp;%</strong>, reflet de différences culturelles et d'un cadre réglementaire plus contraignant (RGPD, DSA).
+    </p>
+    <p class="section__body">
+      Le cas le plus révélateur est le <strong>Royaume-Uni</strong>&nbsp;: <strong>96&nbsp;%</strong> des dirigeants se disent confiants dans leur visibilité, pendant que plus de la moitié de leurs salariés utilisent des outils non approuvés. L'écart confiance / réalité le plus large de l'étude.
+    </p>
+    <p class="section__note">
+      Complément BlackFog (n=2&nbsp;000&nbsp;salariés, entreprises 500+)&nbsp;: 49&nbsp;% adoptent l'IA sans validation employeur&nbsp;· 69&nbsp;% des PDG&nbsp;/ CODIR tolèrent la pratique&nbsp;· 86&nbsp;% utilisent l'IA chaque semaine au travail.
+    </p>
+  </div>
+
+  <div class="section__viz-wrap">
+    <div id="viz-world-wrap">
+      <svg id="viz-world" class="viz-svg" role="img" aria-label="Carte minimaliste montrant le taux d'usage d'IA non sanctionné par pays, de 67% aux États-Unis à 30% en France et Allemagne"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S3 — AMPLEUR INGÉNIEURS
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s3-engineers" class="section section--split">
+  <div class="section__text">
+    <span class="section-number">02 / 05</span>
+    <p class="eyebrow">Ampleur chez les développeurs</p>
+    <h2 class="section__title">Huit développeurs sur dix&nbsp;: l'IA est entrée dans le workflow</h2>
+    <p class="section__body">
+      Selon le Stack Overflow Developer Survey 2025 (n=49&nbsp;000+, 177&nbsp;pays), <strong>84&nbsp;%</strong> des développeurs utilisent ou prévoient d'utiliser des outils IA dans leur processus de développement — contre 76&nbsp;% en 2024.
+    </p>
+    <p class="section__body">
+      L'usage quotidien atteint <strong>51&nbsp;%</strong>. Il décroît avec l'ancienneté&nbsp;: les développeurs en début de carrière sont les plus intensifs (55,5&nbsp;% en usage quotidien), les seniors les plus modérés (47,3&nbsp;%).
+    </p>
+    <p class="section__body">
+      L'enthousiasme global reste majoritaire — <strong>60&nbsp;% de sentiment favorable</strong> — mais il a nettement reculé depuis les sommets de 2023–2024 (70&nbsp;%+). Le scepticisme monte, surtout chez les profils expérimentés.
+    </p>
+    <p class="section__note">
+      Sentiment favorable global&nbsp;: 22,9&nbsp;% très favorable + 36,8&nbsp;% favorable = 59,7&nbsp;% en 2025.
+    </p>
+  </div>
+
+  <div class="section__viz-wrap">
+    <div id="viz-engineers-wrap">
+      <svg id="viz-engineers" class="viz-svg" role="img" aria-label="Bar chart montrant l'usage quotidien de l'IA par ancienneté : 55,5% pour les débutants, 52,8% pour les confirmés, 47,3% pour les seniors"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S4 — ÉCART OFFICIEL / RÉEL
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s4-gap" class="section section--split">
+  <div class="section__text">
+    <span class="section-number">03 / 05</span>
+    <p class="eyebrow">Autorégulation spontanée</p>
+    <h2 class="section__title">Les ingénieurs trient déjà — sans qu'on le leur demande</h2>
+    <p class="section__body">
+      Seulement <strong>28,2&nbsp;%</strong> des développeurs déclarent que leur service IT impose des règles strictes contre les outils IA agentiques. Pour les autres, c'est le vide normatif.
+    </p>
+    <p class="section__body">
+      Pourtant, les ingénieurs ne s'y engouffrent pas aveuglément. Pour les tâches à <strong>faible enjeu</strong> (recherche d'informations), 54,1&nbsp;% utilisent majoritairement l'IA. Mais pour les tâches critiques, le refus est massif et spontané&nbsp;: <strong>75,8&nbsp;%</strong> n'envisagent pas d'utiliser l'IA pour le déploiement ou le monitoring, et <strong>69,2&nbsp;%</strong> pour la planification de projet.
+    </p>
+    <p class="section__body">
+      Le graphique le montre clairement&nbsp;: pour les tâches à enjeu élevé, l'usage réel tombe en-dessous du seuil des règles IT formelles. Ce n'est pas de l'imprudence — c'est du discernement non formalisé.
+    </p>
+    <p class="section__note">
+      Référence cyan (pointillés)&nbsp;: 28,2&nbsp;% = seuil de couverture par des règles IT strictes. Amber&nbsp;= usage effectif au-dessus (zone shadow). Cyan plein&nbsp;= usage en-dessous (autorégulation).
+    </p>
+  </div>
+
+  <div class="section__viz-wrap">
+    <div id="viz-gap-wrap">
+      <svg id="viz-gap" class="viz-svg" role="img" aria-label="Dumbbell chart montrant l'écart entre la référence des règles IT (28,2%) et l'usage réel par type de tâche"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S5 — MYTHE PRODUCTIVITÉ
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s5-productivity" class="section section--split">
+  <div class="section__text">
+    <span class="section-number">04 / 05</span>
+    <p class="eyebrow">Mythe de la productivité</p>
+    <h2 class="section__title">Ce que les développeurs ressentent ≠ ce que la télémétrie mesure</h2>
+    <p class="section__body">
+      Les développeurs déclarent aller plus vite. Les outils mesurent autre chose. Faros AI a analysé les commits, pull requests, bugs et métriques DORA de plus de <strong>10&nbsp;000&nbsp;développeurs</strong> sur 1&nbsp;255 équipes — sans questionnaire déclaratif, avec de la télémétrie réelle.
+    </p>
+    <p class="section__body">
+      Résultat&nbsp;: les équipes à forte adoption IA traitent <strong>21&nbsp;% de tâches en plus</strong> et soumettent <strong>98&nbsp;% de pull requests supplémentaires</strong> (taille +154&nbsp;%). Mais le temps de revue de code <strong>augmente de 91&nbsp;%</strong>, les bugs de <strong>9&nbsp;%</strong>, et les métriques DORA de livraison restent <strong>stables</strong>. Le gain individuel s'évapore au niveau collectif.
+    </p>
+    <p class="section__body">
+      Ce décalage perçu&nbsp;/&nbsp;mesuré n'est pas une preuve que l'IA est inutile — l'étude Cui&nbsp;et&nbsp;al. montre que des gains réels sont possibles dans des contextes matures. C'est une preuve que sans cadre de gouvernance, l'adoption reste sous-optimisée.
+    </p>
+  </div>
+
+  <div class="section__viz-wrap">
+    <div id="viz-diff-wrap" role="img" aria-label="Diff de code animé montrant les gains perçus en rouge et les métriques mesurées en vert"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S6 — PARADOXE CONFIANCE
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s6-trust" class="section section--split">
+  <div class="section__text">
+    <span class="section-number">05 / 05</span>
+    <p class="eyebrow">Paradoxe de la confiance</p>
+    <h2 class="section__title">Plus d'expérience, moins de confiance — la courbe qui se croise</h2>
+    <p class="section__body">
+      La confiance dans l'exactitude des outputs IA n'est pas uniforme. Parmi les 33&nbsp;244 développeurs interrogés sur ce point, seulement <strong>3,1&nbsp;% se disent très confiants</strong>, tandis que <strong>45,7&nbsp;% se déclarent méfiants</strong> (26,1&nbsp;% plutôt + 19,6&nbsp;% très méfiants).
+    </p>
+    <p class="section__body">
+      La tendance par ancienneté est univoque&nbsp;: les développeurs débutants sont les plus confiants (6,1&nbsp;% très confiants), les seniors les plus sceptiques (20,7&nbsp;% très méfiants). Les deux courbes se croisent dès les premières années de carrière professionnelle.
+    </p>
+    <p class="section__body">
+      La frustration principale — citée par <strong>66&nbsp;%</strong> des développeurs — est éloquente&nbsp;: "des solutions presque bonnes mais pas tout à fait". L'IA produit, mais elle ne finit pas. Ce n'est pas un rejet, c'est un diagnostic de maturité.
+    </p>
+  </div>
+
+  <div class="section__viz-wrap">
+    <div id="viz-trust-wrap">
+      <svg id="viz-trust" class="viz-svg" role="img" aria-label="Deux courbes par ancienneté : confiance dans l'IA (décroissante) et méfiance (croissante), avec point de croisement visible entre débutants et junior"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     S7 — CONCLUSION
+     ══════════════════════════════════════════════════════════════════════ -->
+<section id="s7-conclusion" class="section--conclusion">
+  <div class="conclusion">
+    <p class="eyebrow">Conclusion</p>
+
+    <p class="conclusion__prompt">
+      Ce n'est pas de l'imprudence.<span id="conclusion-cursor" class="cursor" aria-hidden="true"></span>
+    </p>
+
+    <p class="section__body" style="max-width: 680px; margin-bottom: 2rem;">
+      Les ingénieurs s'autorégulent déjà spontanément&nbsp;: ils délèguent les tâches à faible enjeu, refusent les tâches critiques, et gardent un regard sceptique sur les outputs qu'ils génèrent. Ce comportement n'est pas accidentel — il est cohérent, systématique, et ne doit rien aux politiques officielles.
+    </p>
+
+    <p class="section__body" style="max-width: 680px; margin-bottom: 2rem;">
+      Le vrai déficit n'est pas dans le jugement des développeurs. Il est dans l'absence d'un cadre de gouvernance qui reconnaîtrait, formaliserait et optimiserait ce qui se passe déjà sur le terrain. Le shadow AI est autant un symptôme d'un vide institutionnel que d'une imprudence individuelle.
+    </p>
+
+    <div class="conclusion__recap">
+      <div class="conclusion__recap-stat">
+        <span class="conclusion__recap-value">90&nbsp;%</span>
+        <span class="conclusion__recap-label">des dirigeants confiants dans leur visibilité</span>
+      </div>
+      <div class="conclusion__recap-stat">
+        <span class="conclusion__recap-value">52&nbsp;%</span>
+        <span class="conclusion__recap-label">des salariés utilisent des outils non approuvés</span>
+      </div>
+      <div class="conclusion__recap-stat">
+        <span class="conclusion__recap-value">28,2&nbsp;%</span>
+        <span class="conclusion__recap-label">seulement couverts par des règles IT strictes</span>
+      </div>
+      <div class="conclusion__recap-stat">
+        <span class="conclusion__recap-value">≈ stable</span>
+        <span class="conclusion__recap-label">métriques DORA malgré l'adoption massive</span>
+      </div>
+    </div>
+
+    <p class="section__note" style="max-width: 680px;">
+      Problématique&nbsp;: "Le shadow AI chez les ingénieurs&nbsp;: imprudence individuelle ou échec collectif de gouvernance&nbsp;?"
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     BIBLIOGRAPHIE
+     ══════════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="bibliography">
+    <p class="bibliography__title">Bibliographie / Sources</p>
+    <ol class="bibliography__list">
+      <li class="bibliography__item">
+        <a href="https://www.theregister.com/ai-ml/2026/05/27/bosses-blinded-by-confidence-about-shadow-ai-use-by-workers/5247275" target="_blank" rel="noopener">
+          Okta / Apprize360, "AI Agents at Work 2026" (via The Register) — n=292 dirigeants + 492 knowledge workers, 7 pays (US, UK, AU, CA, FR, DE, JP)
+        </a>
+      </li>
+      <li class="bibliography__item">
+        <a href="https://www.cio.com/article/4124760/roughly-half-of-employees-are-using-unsanctioned-ai-tools-and-enterprise-leaders-are-major-culprits.html" target="_blank" rel="noopener">
+          BlackFog survey (via CIO.com) — n=2 000 salariés, entreprises 500+ employés
+        </a>
+      </li>
+      <li class="bibliography__item">
+        <a href="https://survey.stackoverflow.co/2025/ai/" target="_blank" rel="noopener">
+          Stack Overflow Developer Survey 2025, section AI — n=49 000+, 177 pays, licence ODbL
+        </a>
+      </li>
+      <li class="bibliography__item">
+        <a href="https://survey.stackoverflow.co/2025" target="_blank" rel="noopener">
+          Stack Overflow Developer Survey 2025 — page d'accueil et méthodologie
+        </a>
+      </li>
+      <li class="bibliography__item">
+        <a href="https://philippdubach.com/posts/93-of-developers-use-ai-coding-tools.-productivity-hasnt-moved./" target="_blank" rel="noopener">
+          Faros AI, données télémétrie réelle (via P. Dubach) — n=10 000+ développeurs, 1 255 équipes
+        </a>
+      </li>
+      <li class="bibliography__item">
+        <a href="https://www.softwareseni.com/what-the-research-actually-shows-about-ai-coding-assistant-productivity/" target="_blank" rel="noopener">
+          Faros AI, synthèse complémentaire (Software Seni)
+        </a>
+      </li>
+      <li class="bibliography__item">
+        <a href="https://arxiv.org/pdf/2508.19834" target="_blank" rel="noopener">
+          Cui et al. 2025 (Microsoft / Accenture), "GitHub Copilot productivity study", via arXiv — RCT, n≈5 000 développeurs, 2–8 mois
+        </a>
+      </li>
+    </ol>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════════════════════════════ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+</script>
+
+<!-- Data & utilities (must load before section scripts) -->
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+
+<!-- Section initializers -->
+<script src="js/s1-hero.js"></script>
+<script src="js/s2-world.js"></script>
+<script src="js/s3-engineers.js"></script>
+<script src="js/s4-gap.js"></script>
+<script src="js/s5-productivity.js"></script>
+<script src="js/s6-trust.js"></script>
+<script src="js/s7-conclusion.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    try { initS1Hero();        } catch(e) { console.error('S1 init error:', e); }
+    try { initS2World();       } catch(e) { console.error('S2 init error:', e); }
+    try { initS3Engineers();   } catch(e) { console.error('S3 init error:', e); }
+    try { initS4Gap();         } catch(e) { console.error('S4 init error:', e); }
+    try { initS5Productivity();} catch(e) { console.error('S5 init error:', e); }
+    try { initS6Trust();       } catch(e) { console.error('S6 init error:', e); }
+    try { initS7Conclusion();  } catch(e) { console.error('S7 init error:', e); }
+
+    /* Recalcule les positions après rendu D3 */
+    ScrollTrigger.refresh();
+    console.log('ScrollTriggers actifs :', ScrollTrigger.getAll().length);
+  });
+</script>
+
+</body>
+</html>
