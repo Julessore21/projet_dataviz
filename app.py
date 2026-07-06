@@ -1,6 +1,6 @@
 """
 Le Shadow AI chez les ingénieurs
-Dataviz — Ynov Campus · Juillet 2026
+Dataviz - Ynov Campus · Juillet 2026
 """
 
 import streamlit as st
@@ -12,7 +12,7 @@ import numpy as np
 
 st.set_page_config(
     page_title="Le Shadow AI chez les ingénieurs",
-    page_icon="🤖",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -340,24 +340,24 @@ with st.sidebar:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 01 — HERO ────────────────────────────────────────────────────────────────
+# ─── 01 - HERO ────────────────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 st.markdown(f"""
 <div style="padding:2rem 0 1rem;">
   <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;
                font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:{LIGHT};">
-    01 — Vue d'ensemble
+    01. Vue d'ensemble
   </span>
   <h1 style="font-family:'Inter Tight',sans-serif;font-size:2.8rem;font-weight:800;
              color:{TEXT};line-height:1.1;letter-spacing:-0.035em;margin:0.3rem 0 0.8rem;">
     La moitié des équipes<br>
-    <span style="color:{TEAL};">contourne les règles IT</span> —<br>
+    <span style="color:{TEAL};">contourne les règles IT</span> <br>
     sans que personne le sache vraiment.
   </h1>
   <p style="font-size:1.05rem;color:{MUTED};max-width:680px;line-height:1.7;margin:0;">
     84 % des ingénieurs utilisent l'IA au travail. Dans la grande majorité des cas,
-    leurs employeurs ne le savent pas — ou font semblant de l'ignorer.
+    leurs employeurs ne le savent pas. Ou font semblant de l'ignorer.
     Ce rapport explore les données derrière le <em>shadow AI</em> : adoption mondiale,
     conformité IT, productivité mesurée et paradoxe de la confiance.
   </p>
@@ -368,13 +368,13 @@ c1, c2, c3, c4 = st.columns(4, gap="medium")
 with c1:
     st.metric(
         "Dirigeants « confiants »", "90 %",
-        help="Okta / Apprize360 'AI Agents at Work 2026' — n=292 dirigeants",
+        help="Okta / Apprize360 'AI Agents at Work 2026'. n=292 dirigeants",
     )
 with c2:
     st.metric(
         "Shadow AI réel", "52 %",
         delta="−38 pts vs perception", delta_color="inverse",
-        help="BlackFog Survey — n=2 000 salariés, entreprises 500+ employés",
+        help="BlackFog Survey. n=2 000 salariés, entreprises 500+ employés",
     )
 with c3:
     st.metric(
@@ -384,7 +384,7 @@ with c3:
 with c4:
     st.metric(
         "Développeurs frustrés par l'IA", "66 %",
-        help="Stack Overflow Developer Survey 2025 — n=31 476",
+        help="Stack Overflow Developer Survey 2025. n=31 476",
     )
 
 st.markdown("<div style='height:0.5rem'></div>", unsafe_allow_html=True)
@@ -398,15 +398,15 @@ st.markdown(f"""
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 02 — CARTE MONDIALE ──────────────────────────────────────────────────────
+# ─── 02 - CARTE MONDIALE ──────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "02 — Ampleur mondiale",
+    "02. Ampleur mondiale",
     "Un phénomène qui dépasse largement les frontières",
     "Dans 6 pays étudiés, entre 30 % et 67 % des salariés utilisent des outils IA "
     "non approuvés par leur employeur. Les États-Unis et l'Australie en tête, "
-    "la France et l'Allemagne en queue — mais tous au-dessus de la moitié.",
+    "la France et l'Allemagne en queue. Mais tous au-dessus de la moitié.",
 )
 
 col_map, col_map_r = st.columns([3, 1], gap="large")
@@ -480,16 +480,16 @@ with col_map:
     )
 
     st.plotly_chart(fig_map, width="stretch")
-    src("Okta / Apprize360 2026 — n=784 · BlackFog Survey — n=2 000")
+    src("Okta / Apprize360 2026. n=784 · BlackFog Survey. n=2 000")
 
 with col_map_r:
     st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
     callout(
-        f'<strong>🇬🇧 Cas extrême : Royaume-Uni</strong>'
+        f'<strong>Cas extrême : Royaume-Uni</strong>'
         f'<p><span class="num teal">96 %</span> des dirigeants britanniques '
         f'se déclarent confiants.<br><br>'
         f'Pourtant <span class="num amber">+50 %</span> des employés '
-        f'utilisent des outils non approuvés — l\'écart le plus marqué de l\'étude.</p>',
+        f'utilisent des outils non approuvés. L\'écart le plus marqué de l\'étude.</p>',
         "teal",
     )
     callout(
@@ -502,14 +502,14 @@ with col_map_r:
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 03 — ANGLE MORT ──────────────────────────────────────────────────────────
+# ─── 03 - ANGLE MORT ──────────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "03 — L'angle mort des dirigeants",
+    "03. L'angle mort des dirigeants",
     "90 % de confiance, 52 % de réalité : un écart de 38 points",
     "Les dirigeants surestiment massivement leur maîtrise de l'IA dans leurs équipes. "
-    "Au Royaume-Uni, cet écart atteint 41 points — le chiffre le plus alarmant de l'étude.",
+    "Au Royaume-Uni, cet écart atteint 41 points. Le chiffre le plus alarmant de l'étude.",
 )
 
 col_bl, col_bl_r = st.columns([3, 1], gap="large")
@@ -528,8 +528,7 @@ with col_bl:
         text=[f"<b>{v} %</b>" for v in conf_values],
         textposition="outside",
         textfont=dict(color=TEAL, size=14, family="JetBrains Mono"),
-        width=0.3, offset=-0.17,
-        hovertemplate="<b>%{x}</b> — Confiance dirigeants<br>%{y} %<extra></extra>",
+        hovertemplate="<b>%{x}</b> · Confiance dirigeants<br>%{y} %<extra></extra>",
     ))
 
     fig_bl.add_trace(go.Bar(
@@ -539,8 +538,7 @@ with col_bl:
         text=[f"<b>{v} %</b>" for v in shadow_values],
         textposition="outside",
         textfont=dict(color=AMBER, size=14, family="JetBrains Mono"),
-        width=0.3, offset=0.17,
-        hovertemplate="<b>%{x}</b> — Shadow AI réel<br>%{y} %<extra></extra>",
+        hovertemplate="<b>%{x}</b> · Shadow AI réel<br>%{y} %<extra></extra>",
     ))
 
     for i, (cv, sv) in enumerate(zip(conf_values, shadow_values)):
@@ -553,14 +551,14 @@ with col_bl:
         )
 
     fig_bl.update_layout(
-        **layout(height=380, barmode="overlay", bargap=0,
+        **layout(height=380, barmode="group", bargap=0.35, bargroupgap=0.08,
                  legend=dict(orientation="h", y=1.1, x=0, font=dict(size=12))),
         yaxis=dict(**ax(ticksuffix=" %", range=[0, 118], title_text="Pourcentage (%)")),
         xaxis=dict(**ax(tickfont=dict(size=14, color=TEXT))),
     )
 
     st.plotly_chart(fig_bl, width="stretch")
-    src("Okta / Apprize360 2026 — n=292 dirigeants · BlackFog Survey — n=2 000")
+    src("Okta / Apprize360 2026. n=292 dirigeants · BlackFog Survey. n=2 000")
 
 with col_bl_r:
     st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
@@ -574,47 +572,58 @@ with col_bl_r:
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 04 — USAGE PAR SÉNIORITÉ ─────────────────────────────────────────────────
+# ─── 04 - USAGE PAR SÉNIORITÉ ─────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "04 — Profil des ingénieurs",
+    "04. Profil des ingénieurs",
     "Tous les niveaux d'expérience dépassent le seuil IT",
     "Qu'ils aient 1 an ou 15 ans d'ancienneté, les développeurs utilisent l'IA "
-    "quotidiennement à un niveau qui excède les règles IT strictes — de 19 à 27 points.",
+    "quotidiennement à un niveau qui excède les règles IT strictes. De 19 à 27 points.",
 )
 
 col_sen, col_sen_r = st.columns([3, 1], gap="large")
 
 with col_sen:
-    df_s = df_seniority.sort_values("daily", ascending=True).copy()
+    df_s  = df_seniority.sort_values("daily", ascending=True).copy()
+    y_pos = list(range(len(df_s)))
+    vals  = df_s["daily"].tolist()
+    labs  = df_s["label"].tolist()
 
     fig_sen = go.Figure()
 
     fig_sen.add_vrect(
-        x0=IT_THRESHOLD, x1=68,
+        x0=IT_THRESHOLD, x1=72,
         fillcolor=AMBER, opacity=0.06, layer="below", line_width=0,
         annotation_text="Zone shadow AI", annotation_position="top left",
         annotation_font=dict(color=AMBER, size=10),
     )
 
-    fig_sen.add_trace(go.Bar(
-        x=df_s["daily"],
-        y=df_s["label"],
-        orientation="h",
-        marker=dict(
-            color=[TEAL, TEAL, PAL_TEAL[2]],
-            opacity=0.85,
-            line=dict(color="rgba(0,0,0,0)"),
-        ),
-        text=[f"<b>{v} %</b>" for v in df_s["daily"]],
-        textposition="outside",
+    # Tiges : écart entre le seuil IT et l'usage réel
+    for yi, v in zip(y_pos, vals):
+        fig_sen.add_shape(
+            type="line", x0=IT_THRESHOLD, x1=v, y0=yi, y1=yi,
+            line=dict(color=AMBER, width=3.5),
+        )
+        fig_sen.add_annotation(
+            x=(IT_THRESHOLD + v) / 2, y=yi, yshift=13,
+            text=f"+{v - IT_THRESHOLD:.1f} pts", showarrow=False,
+            font=dict(color=AMBER, size=10),
+        )
+
+    fig_sen.add_trace(go.Scatter(
+        x=vals, y=y_pos,
+        mode="markers+text",
+        marker=dict(color=TEAL, size=16, line=dict(color=CARD, width=2.5)),
+        text=[f"<b>{v} %</b>" for v in vals],
+        textposition="middle right",
         textfont=dict(color=TEXT, size=13, family="JetBrains Mono"),
-        width=0.5,
-        hovertemplate="<b>%{y}</b><br>Usage quotidien : <b>%{x} %</b><extra></extra>",
+        customdata=labs,
+        hovertemplate="<b>%{customdata}</b><br>Usage quotidien : <b>%{x} %</b><extra></extra>",
+        showlegend=False,
     ))
 
-    # Seuil IT
+    # Seuil IT (référence = origine des tiges)
     fig_sen.add_vline(
         x=IT_THRESHOLD,
         line=dict(color=CORAL, width=2, dash="dash"),
@@ -622,23 +631,15 @@ with col_sen:
         annotation_position="bottom right",
         annotation_font=dict(color=CORAL, size=11),
     )
-    # Moyenne
-    fig_sen.add_vline(
-        x=51,
-        line=dict(color=MUTED, width=1.5, dash="dot"),
-        annotation_text="Moy. globale : 51 %",
-        annotation_position="top right",
-        annotation_font=dict(color=MUTED, size=11),
-    )
 
     fig_sen.update_layout(
         **layout(height=320),
         xaxis=dict(**ax(range=[0, 72], ticksuffix=" %", title_text="Usage quotidien déclaré (%)")),
-        yaxis=dict(**ax(tickfont=dict(size=12.5, color=TEXT))),
+        yaxis=dict(tickvals=y_pos, ticktext=labs, **ax(tickfont=dict(size=12.5, color=TEXT))),
     )
 
     st.plotly_chart(fig_sen, width="stretch")
-    src("Stack Overflow Developer Survey 2025 — n=49 000+, 177 pays, ODbL")
+    src("Stack Overflow Developer Survey 2025. n=49 000+, 177 pays, ODbL")
 
 with col_sen_r:
     st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
@@ -661,15 +662,15 @@ with col_sen_r:
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 05 — GAP IT ──────────────────────────────────────────────────────────────
+# ─── 05 - GAP IT ──────────────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "05 — Conformité IT",
+    "05. Conformité IT",
     "La tâche la plus banale dépasse le seuil de 26 points",
     f"Seules {IT_THRESHOLD} % des organisations ont des règles IT strictes sur l'IA agentique. "
-    "Pourtant les ingénieurs l'utilisent à 54 % pour « chercher des réponses » — "
-    "une tâche jugée à enjeu faible, mais qui implique souvent des données sensibles.",
+    "Pourtant les ingénieurs l'utilisent à 54 % pour « chercher des réponses ». "
+    "Une tâche jugée à enjeu faible, mais qui implique souvent des données sensibles.",
 )
 
 col_dump, col_dump_r = st.columns([3, 1], gap="large")
@@ -680,79 +681,65 @@ with col_dump:
     usages = df_tasks["usage"].tolist()
     stakes = df_tasks["stakes"].tolist()
 
+    y_pos    = list(range(n_t))
+    deltas   = [u - IT_THRESHOLD for u in usages]
+    bar_cols = [AMBER if d > 0 else TEAL for d in deltas]
+
     fig_dump = go.Figure()
 
-    for i, (u, s) in enumerate(zip(usages, stakes)):
-        is_above = u > IT_THRESHOLD
-        x0 = min(u, IT_THRESHOLD)
-        x1 = max(u, IT_THRESHOLD)
-        col_seg = AMBER if is_above else TEAL
+    # Barres divergentes ancrées sur le seuil IT (le seuil = "zéro")
+    fig_dump.add_trace(go.Bar(
+        x=deltas, y=y_pos,
+        base=IT_THRESHOLD,
+        orientation="h",
+        marker=dict(color=bar_cols, opacity=0.85, line=dict(color="rgba(0,0,0,0)")),
+        width=0.55,
+        customdata=list(zip(labels, usages, stakes, [f"{d:+.1f}" for d in deltas])),
+        hovertemplate=(
+            "<b>%{customdata[0]}</b><br>"
+            "Usage : <b>%{customdata[1]} %</b> (%{customdata[3]} pts vs seuil)<br>"
+            "Enjeu : %{customdata[2]}<extra></extra>"
+        ),
+        showlegend=False,
+    ))
 
-        fig_dump.add_shape(
-            type="rect", x0=x0, x1=x1, y0=i - 0.12, y1=i + 0.12,
-            fillcolor=col_seg, opacity=0.12,
-            line=dict(color="rgba(0,0,0,0)"),
-        )
-        fig_dump.add_shape(
-            type="line", x0=x0, x1=x1, y0=i, y1=i,
-            line=dict(color=col_seg, width=3),
+    # Valeur d'usage au bout de chaque barre
+    for yi, u, d in zip(y_pos, usages, deltas):
+        fig_dump.add_annotation(
+            x=u, y=yi, xshift=14 if d > 0 else -14,
+            text=f"<b>{u} %</b>", showarrow=False,
+            xanchor="left" if d > 0 else "right",
+            font=dict(color=TEXT, size=12.5, family="JetBrains Mono"),
         )
 
+    # Ligne de seuil = origine des barres
     fig_dump.add_shape(
         type="line", x0=IT_THRESHOLD, x1=IT_THRESHOLD,
         y0=-0.5, y1=n_t - 0.5,
         line=dict(color=TEAL, width=2, dash="dot"),
     )
     fig_dump.add_annotation(
-        x=IT_THRESHOLD, y=n_t - 0.3,
+        x=IT_THRESHOLD, y=n_t - 0.35,
         text=f"Seuil IT : {IT_THRESHOLD} %",
         showarrow=False,
         font=dict(color=TEAL, size=11),
         bgcolor=CARD, bordercolor=TEAL, borderwidth=1, borderpad=4,
     )
 
-    fig_dump.add_trace(go.Scatter(
-        x=[IT_THRESHOLD] * n_t, y=list(range(n_t)),
-        mode="markers",
-        name=f"Seuil IT ({IT_THRESHOLD} %)",
-        marker=dict(color=TEAL, size=14, line=dict(color=CARD, width=2.5)),
-        hovertemplate=f"Seuil IT strict : <b>{IT_THRESHOLD} %</b><extra></extra>",
-    ))
-
-    dot_cols   = [AMBER if u > IT_THRESHOLD else TEAL for u in usages]
-    text_anch  = ["middle right" if u > IT_THRESHOLD else "middle left" for u in usages]
-
-    fig_dump.add_trace(go.Scatter(
-        x=usages, y=list(range(n_t)),
-        mode="markers+text",
-        name="Usage déclaré",
-        marker=dict(color=dot_cols, size=14, line=dict(color=CARD, width=2.5)),
-        text=[f"<b>{v} %</b>" for v in usages],
-        textposition=text_anch,
-        textfont=dict(color=TEXT, size=12.5, family="JetBrains Mono"),
-        customdata=list(zip(labels, usages, stakes)),
-        hovertemplate=(
-            "<b>%{customdata[0]}</b><br>"
-            "Usage : <b>%{customdata[1]} %</b><br>"
-            "Enjeu : %{customdata[2]}<extra></extra>"
-        ),
-    ))
-
-    for i, (lbl, u, s) in enumerate(zip(labels, usages, stakes)):
+    for yi, u, s in zip(y_pos, usages, stakes):
         badge_col = AMBER if s == "Faible" else CORAL
         fig_dump.add_annotation(
-            x=max(u, IT_THRESHOLD) + 2.5, y=i - 0.38,
+            x=max(u, IT_THRESHOLD), y=yi, yshift=-17, xshift=14,
             text=f"enjeu {s.lower()}",
-            showarrow=False,
+            showarrow=False, xanchor="left",
             font=dict(color=badge_col, size=10),
         )
 
     fig_dump.update_layout(
-        **layout(height=360, margin=dict(t=55, b=55, l=210, r=50),
-                 legend=dict(orientation="h", y=1.1, x=0)),
+        **layout(height=360, margin=dict(t=55, b=55, l=210, r=60)),
         xaxis=dict(**ax(range=[0, 68], ticksuffix=" %",
                         title_text="Taux d'utilisation pour cette tâche (%)")),
-        yaxis=dict(tickvals=list(range(n_t)), ticktext=labels,
+        yaxis=dict(tickvals=y_pos, ticktext=labels,
                    **ax(tickfont=dict(size=12.5, color=TEXT))),
     )
 
@@ -761,21 +748,21 @@ with col_dump:
         f"Règles IT strictes anti-IA agentique = {IT_THRESHOLD} % "
         "(13,8 % « tout à fait d'accord » + 14,4 % « plutôt d'accord »)."
     )
-    src("Stack Overflow Developer Survey 2025 — n=28 930")
+    src("Stack Overflow Developer Survey 2025. n=28 930")
 
 with col_dump_r:
     st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
     callout(
         f'<strong>Zone shadow ↑ enjeu faible</strong>'
-        f'<p>« Rechercher des réponses » : <span class="num amber">54,1 %</span> — '
-        f'soit <span class="num">+26 pts</span> au-delà du seuil IT. '
+        f'<p>« Rechercher des réponses » : <span class="num amber">54,1 %</span>. '
+        f'Soit <span class="num">+26 pts</span> au-delà du seuil IT. '
         f'La tâche la plus banalisée, souvent sans conscience du risque de fuite de données.</p>',
         "amber",
     )
     callout(
         f'<strong>Auto-régulation ↓ enjeu élevé</strong>'
-        f'<p>Déploiement / monitoring : <span class="num teal">24,2 %</span> — '
-        f'en-dessous du seuil. Les ingénieurs se régulent naturellement '
+        f'<p>Déploiement / monitoring : <span class="num teal">24,2 %</span>. '
+        f'En-dessous du seuil. Les ingénieurs se régulent naturellement '
         f'sur les tâches critiques.</p>',
         "teal",
     )
@@ -783,11 +770,11 @@ with col_dump_r:
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 06 — PRODUCTIVITÉ ────────────────────────────────────────────────────────
+# ─── 06 - PRODUCTIVITÉ ────────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "06 — Le paradoxe de la productivité",
+    "06. Le paradoxe de la productivité",
     "+98 % de PR perçues, −19 % de vélocité mesurée",
     "Les développeurs se sentent plus productifs. La télémétrie dit le contraire. "
     "Ce décalage entre ressenti individuel et mesure collective est l'une des tensions "
@@ -797,7 +784,10 @@ section_header(
 col_pr, col_pr_r = st.columns([3, 1], gap="large")
 
 with col_pr:
-    df_p = df_productivity.sort_values("value").copy()
+    # Ordre explicite : groupe MESURÉ en bas, groupe PERÇU en haut
+    order = ["Temps de revue code", "Vélocité équipe", "Score DORA",
+             "Tâches complétées", "PR soumises"]
+    df_p = df_productivity.set_index("metric").loc[order].reset_index()
 
     bar_colors = []
     for _, r in df_p.iterrows():
@@ -823,15 +813,16 @@ with col_pr:
         width=0.55,
     ))
 
-    for _, r in df_p.iterrows():
-        badge = "📊 mesuré" if r["src"] == "Mesuré" else "💬 perçu"
-        shift = 6 if r["value"] >= 0 else -6
-        fig_pr.add_annotation(
-            x=r["value"] + shift, y=r["metric"], yshift=15,
-            text=badge, showarrow=False,
-            font=dict(color=MUTED, size=9.5),
-            xanchor="left" if r["value"] >= 0 else "right",
-        )
+    # Séparation nette entre le déclaratif (perçu) et la télémétrie (mesuré)
+    fig_pr.add_hline(y=2.5, line=dict(color=BORDER, width=1, dash="dot"))
+    fig_pr.add_annotation(
+        x=-118, y=4.4, text="<b>PERÇU</b> · déclaratif", showarrow=False,
+        xanchor="left", font=dict(color=SAGE, size=10.5),
+    )
+    fig_pr.add_annotation(
+        x=-118, y=2.15, text="<b>MESURÉ</b> · télémétrie", showarrow=False,
+        xanchor="left", font=dict(color=CORAL, size=10.5),
+    )
 
     fig_pr.update_layout(
         **layout(height=400),
@@ -842,8 +833,8 @@ with col_pr:
 
     st.plotly_chart(fig_pr, width="stretch")
     src(
-        "Faros AI — n=10 000+ développeurs, 1 255 équipes · "
-        "Cui et al. 2025 (arXiv:2508.19834) — RCT, n≈5 000"
+        "Faros AI. n=10 000+ développeurs, 1 255 équipes · "
+        "Cui et al. 2025 (arXiv:2508.19834). RCT, n≈5 000"
     )
 
 with col_pr_r:
@@ -866,12 +857,12 @@ with col_pr_r:
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 07 — TRUST PARADOX ───────────────────────────────────────────────────────
+# ─── 07 - TRUST PARADOX ───────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "07 — Le paradoxe de la confiance",
-    "Plus on est expérimenté, plus on est méfiant — et frustré",
+    "07. Le paradoxe de la confiance",
+    "Plus on est expérimenté, plus on est méfiant. Et frustré",
     "Les débutants font confiance à l'IA ; les seniors s'en méfient. "
     "Les deux courbes se croisent dès 1–5 ans d'ancienneté. "
     "Globalement, les très méfiants sont 45,7 % contre 32,7 % de très confiants.",
@@ -888,7 +879,7 @@ with col_tr1:
         x=x_lbl, y=df_trust["favorable"],
         mode="lines+markers",
         name="% très confiant",
-        line=dict(color=TEAL, width=3, shape="spline", smoothing=0.7),
+        line=dict(color=TEAL, width=3, shape="linear"),
         marker=dict(
             size=[10 if s else 7 for s in df_trust["sf"]],
             color=TEAL,
@@ -903,7 +894,7 @@ with col_tr1:
         x=x_lbl, y=df_trust["skeptical"],
         mode="lines+markers",
         name="% très méfiant",
-        line=dict(color=AMBER, width=3, shape="spline", smoothing=0.7),
+        line=dict(color=AMBER, width=3, shape="linear"),
         marker=dict(
             size=[10 if s else 7 for s in df_trust["ss"]],
             color=AMBER,
@@ -935,7 +926,7 @@ with col_tr1:
         "Cercles pleins = valeurs source (Stack Overflow 2025). "
         "Cercles vides = interpolation de tendance décrite dans l'étude."
     )
-    src("Stack Overflow Developer Survey 2025 — n=33 244 (confiance) · n=31 476 (frustration)")
+    src("Stack Overflow Developer Survey 2025. n=33 244 (confiance) · n=31 476 (frustration)")
 
 with col_tr2:
     # Donut
@@ -998,70 +989,73 @@ with col_tr2:
 st.markdown("---")
 
 # ══════════════════════════════════════════════════════════════════════════════
-# ─── 08 — RADAR SYNTHÈSE ──────────────────────────────────────────────────────
+# ─── 08 - RADAR SYNTHÈSE ──────────────────────────────────────────────────────
 # ══════════════════════════════════════════════════════════════════════════════
 
 section_header(
-    "08 — Synthèse · Profil de gouvernance",
+    "08. Synthèse · Profil de gouvernance",
     "Cinq angles morts, une même conclusion : la gouvernance IA est à construire",
     "Chaque dimension révèle un déficit structurel. "
     "L'écart entre situation actuelle et cible de bonne gouvernance "
-    "est large sur toutes les dimensions — mais pas irréductible.",
+    "est large sur toutes les dimensions. Mais pas irréductible.",
 )
 
 col_rd, col_rd_r = st.columns([2, 1], gap="large")
 
 with col_rd:
     dims = [
-        "Shadow AI\n(% non approuvé)",
-        "Non-conformité IT\n(% hors seuil)",
-        "Gap productivité\n(perçu vs mesuré)",
-        "Polarisation\nde la confiance",
-        "Blindspot\ndirigeants",
+        "Shadow AI (% non approuvé)",
+        "Non-conformité IT (% hors seuil)",
+        "Gap productivité (perçu vs mesuré)",
+        "Polarisation de la confiance",
+        "Blindspot dirigeants",
     ]
     current = [52.0, 71.8, 57.0, 78.4, 38.0]
     target  = [15,   20,   20,   30,   10  ]
 
-    dims_c   = dims    + [dims[0]]
-    curr_c   = current + [current[0]]
-    targ_c   = target  + [target[0]]
+    # Tri par écart croissant : le plus critique se retrouve en haut du graphique
+    order     = sorted(range(len(dims)), key=lambda i: current[i] - target[i])
+    dims_s    = [dims[i]    for i in order]
+    current_s = [current[i] for i in order]
+    target_s  = [target[i]  for i in order]
+    y_pos     = list(range(len(dims_s)))
 
     fig_rd = go.Figure()
 
-    fig_rd.add_trace(go.Scatterpolar(
-        r=curr_c, theta=dims_c,
-        fill="toself",
-        fillcolor=f"rgba(232,168,56,0.15)",
-        line=dict(color=AMBER, width=2.5),
-        name="Situation actuelle",
-        hovertemplate="<b>%{theta}</b><br>Score : <b>%{r:.1f} / 100</b><extra></extra>",
-    ))
+    # Segment reliant la cible à la situation actuelle = l'écart à combler
+    for yi, c, t in zip(y_pos, current_s, target_s):
+        fig_rd.add_shape(
+            type="line", x0=t, x1=c, y0=yi, y1=yi,
+            line=dict(color=BORDER, width=2),
+        )
+        fig_rd.add_annotation(
+            x=(c + t) / 2, y=yi, yshift=12,
+            text=f"écart {c - t:.0f}", showarrow=False,
+            font=dict(color=LIGHT, size=9.5),
+        )
 
-    fig_rd.add_trace(go.Scatterpolar(
-        r=targ_c, theta=dims_c,
-        fill="toself",
-        fillcolor=f"rgba(91,191,186,0.12)",
-        line=dict(color=TEAL, width=2, dash="dot"),
-        name="Cible de bonne gouvernance",
-        hovertemplate="<b>%{theta}</b><br>Cible : <b>%{r:.0f} / 100</b><extra></extra>",
+    fig_rd.add_trace(go.Scatter(
+        x=target_s, y=y_pos,
+        mode="markers", name="Cible de bonne gouvernance",
+        marker=dict(color=TEAL, size=14, line=dict(color=CARD, width=2)),
+        hovertemplate="Cible : <b>%{x} / 100</b><extra></extra>",
+    ))
+    fig_rd.add_trace(go.Scatter(
+        x=current_s, y=y_pos,
+        mode="markers+text", name="Situation actuelle",
+        marker=dict(color=AMBER, size=17, line=dict(color=CARD, width=2)),
+        text=[f"<b>{v:.0f}</b>" for v in current_s],
+        textposition="middle right",
+        textfont=dict(color=TEXT, size=12, family="JetBrains Mono"),
+        hovertemplate="Actuel : <b>%{x:.0f} / 100</b><extra></extra>",
     ))
 
     fig_rd.update_layout(
-        **layout(height=460, margin=dict(t=50, b=70, l=60, r=60),
-                 legend=dict(orientation="h", y=-0.1, x=0.15, font=dict(size=12))),
-        polar=dict(
-            bgcolor=CARD,
-            radialaxis=dict(
-                visible=True, range=[0, 100],
-                tickvals=[0, 25, 50, 75, 100],
-                tickfont=dict(color=LIGHT, size=9.5),
-                gridcolor=BORDER, linecolor=BORDER, angle=90,
-            ),
-            angularaxis=dict(
-                tickfont=dict(color=TEXT, size=11.5),
-                linecolor=BORDER, gridcolor=BORDER,
-            ),
-        ),
+        **layout(height=460, margin=dict(t=60, b=40, l=240, r=45),
+                 legend=dict(orientation="h", y=1.12, x=0, font=dict(size=12))),
+        xaxis=dict(**ax(range=[0, 100], title_text="Score de préoccupation (0 → 100)")),
+        yaxis=dict(tickvals=y_pos, ticktext=dims_s,
+                   **ax(tickfont=dict(size=12, color=TEXT))),
     )
 
     st.plotly_chart(fig_rd, width="stretch")
@@ -1073,7 +1067,7 @@ with col_rd:
 with col_rd_r:
     st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
     callout(
-        f'<strong>Lecture du radar</strong>'
+        f'<strong>Lecture du graphique</strong>'
         f'<p>• Shadow AI : <span class="num amber">52 / 100</span><br>'
         f'• Non-conformité IT : <span class="num amber">72 / 100</span><br>'
         f'• Gap productivité : <span class="num amber">57 / 100</span><br>'
@@ -1094,11 +1088,11 @@ st.markdown("---")
 st.markdown(f"""
 <div style="padding:1rem 0 2rem;color:{LIGHT};font-size:0.78rem;line-height:2;">
   <strong style="color:{MUTED};">Sources complètes</strong><br>
-  Okta / Apprize360 — <em>AI Agents at Work 2026</em> (via The Register) — n=784<br>
-  BlackFog Survey (via CIO.com) — n=2 000<br>
-  Stack Overflow Developer Survey 2025 — n=49 000+, 177 pays, licence ODbL<br>
-  Faros AI, données télémétrie (via P. Dubach) — n=10 000+ développeurs<br>
-  Cui et al. 2025 (Microsoft / Accenture) — arXiv:2508.19834 — RCT, n≈5 000<br><br>
-  Dataviz réalisée dans le cadre du cours <strong style="color:{MUTED};">Dataviz</strong> — Ynov Campus · Juillet 2026
+  Okta / Apprize360. <em>AI Agents at Work 2026</em> (via The Register). n=784<br>
+  BlackFog Survey (via CIO.com). n=2 000<br>
+  Stack Overflow Developer Survey 2025. n=49 000+, 177 pays, licence ODbL<br>
+  Faros AI, données télémétrie (via P. Dubach). n=10 000+ développeurs<br>
+  Cui et al. 2025 (Microsoft / Accenture). arXiv:2508.19834. RCT, n≈5 000<br><br>
+  Dataviz réalisée dans le cadre du cours <strong style="color:{MUTED};">Dataviz</strong>. Ynov Campus · Juillet 2026
 </div>
 """, unsafe_allow_html=True)
