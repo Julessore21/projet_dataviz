@@ -19,26 +19,26 @@ st.set_page_config(
 
 # ─── PALETTE ──────────────────────────────────────────────────────────────────
 
-BG      = "#FAFAF8"
-CARD    = "#FFFFFF"
-ALT     = "#F2F1ED"
-BORDER  = "#E5E4DF"
-TEXT    = "#1C1C2E"
-MUTED   = "#6B7280"
-LIGHT   = "#B0B0BB"
+BG      = "#0D1117"
+CARD    = "#161B22"
+ALT     = "#1C2128"
+BORDER  = "#30363D"
+TEXT    = "#E6EDF3"
+MUTED   = "#8B949E"
+LIGHT   = "#484F58"
 
-TEAL    = "#5BBFBA"   # confiance officielle / positif structurel
-AMBER   = "#E8A838"   # shadow / zone grise
-CORAL   = "#E8736A"   # négatif / alerte
-SAGE    = "#6BAF7A"   # positif / gain
+TEAL    = "#4FC4BE"   # confiance officielle / positif structurel
+AMBER   = "#A07CE8"   # violet pastel — shadow / zone grise
+CORAL   = "#E05858"   # négatif / alerte
+SAGE    = "#68B578"   # positif / gain
 BLUE    = "#6A9FD8"   # neutre informatif
-LILAC   = "#9D8EC8"   # paradoxe / nuance
+LILAC   = "#A07CE8"   # paradoxe / nuance
 
-# Palettes pastel pour charts
-PAL_TEAL  = ["#C8ECEA", "#9EDBD7", "#72CBC5", "#5BBFBA", "#3FA8A2"]
-PAL_AMBER = ["#FDECC8", "#FAD98A", "#F5C24A", "#E8A838", "#D09020"]
-PAL_CORAL = ["#FDE8E6", "#F8C0BB", "#F09690", "#E8736A", "#D05048"]
-PAL_SAGE  = ["#DDF2E2", "#B8E4C4", "#8FD1A4", "#6BAF7A", "#4A9258"]
+# Palettes séquentielles (light → dark)
+PAL_TEAL  = ["#A8E4E0", "#7ED4CE", "#5BBFBA", "#3FA8A2", "#1F8880"]
+PAL_AMBER = ["#FAD8B8", "#F5B880", "#F0A060", "#F0853A", "#C05818"]
+PAL_CORAL = ["#F8C8C8", "#F0A0A0", "#E87878", "#E05858", "#B83838"]
+PAL_SAGE  = ["#C0E8C8", "#98D4A8", "#78C088", "#68B578", "#488858"]
 
 # ─── DESIGN CONSTANTS ─────────────────────────────────────────────────────────
 
@@ -52,7 +52,7 @@ _LAYOUT = dict(
 )
 
 _AXIS = dict(
-    gridcolor="#EEEEED",
+    gridcolor="#21262D",
     zeroline=False,
     tickfont=dict(color=MUTED, size=11),
     title_font=dict(color=MUTED, size=11),
@@ -123,7 +123,12 @@ p, li, .stMarkdown p {{ color: {MUTED}; line-height: 1.7; font-size: 0.96rem; }}
   font-size: 0.78rem !important;
 }}
 
-/* ── Section header ── */
+/* ── Section header — hiérarchie typographique ──
+   .section-num   : 0.68rem  étiquette de section
+   .section-claim : 2.0rem   titre principal (affirmation)
+   .section-deck  : 1.05rem  sous-titre / chapeau narratif
+   body p         : 0.96rem  texte courant
+   ────────────────────────────────────────────── */
 .section-num {{
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.68rem;
@@ -136,17 +141,18 @@ p, li, .stMarkdown p {{ color: {MUTED}; line-height: 1.7; font-size: 0.96rem; }}
 }}
 .section-claim {{
   font-family: 'Inter Tight', sans-serif;
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: {TEXT};
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  margin: 0 0 0.6rem;
+  font-size: 2.0rem;
+  font-weight: 800 !important;
+  color: {TEXT} !important;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0.15rem 0 0.65rem;
 }}
 .section-deck {{
-  font-size: 0.95rem;
-  color: {MUTED};
-  line-height: 1.65;
+  font-size: 1.05rem;
+  font-weight: 400 !important;
+  color: {MUTED} !important;
+  line-height: 1.7;
   margin-bottom: 1.5rem;
   max-width: 640px;
 }}
@@ -307,6 +313,7 @@ with st.sidebar:
         ("06", CORAL, "Paradoxe productivité"),
         ("07", LILAC, "Paradoxe confiance"),
         ("08", BLUE,  "Synthèse"),
+        ("09", CORAL, "Anatomie du risque"),
     ]
 
     st.markdown(f"""
@@ -464,10 +471,10 @@ with col_map:
 
     fig_map.update_geos(
         projection_type="natural earth",
-        showland=True,    landcolor="#EEF3F2",
-        showocean=True,   oceancolor="#F5F7F9",
-        showcoastlines=True, coastlinecolor=BORDER, coastlinewidth=0.7,
-        showcountries=True,  countrycolor=BORDER,   countrywidth=0.4,
+        showland=True,    landcolor="#1A2332",
+        showocean=True,   oceancolor="#0D1824",
+        showcoastlines=True, coastlinecolor="#3A4A5C", coastlinewidth=0.8,
+        showcountries=True,  countrycolor="#2A3A4C",   countrywidth=0.5,
         showframe=False,
         lataxis_range=[-60, 82],
         lonaxis_range=[-160, 170],
@@ -476,7 +483,7 @@ with col_map:
 
     fig_map.update_layout(
         **layout(height=420, margin=dict(t=10, b=10, l=0, r=10),
-                 geo=dict(bgcolor=CARD)),
+                 geo=dict(bgcolor=BG)),
     )
 
     st.plotly_chart(fig_map, width="stretch")
@@ -515,46 +522,68 @@ section_header(
 col_bl, col_bl_r = st.columns([3, 1], gap="large")
 
 with col_bl:
-    categories    = ["Global", "Royaume-Uni"]
-    conf_values   = [90, 96]
-    shadow_values = [52, 55]
+    categories    = ["Royaume-Uni", "Global"]
+    conf_values   = [96, 90]
+    shadow_values = [55, 52]
 
     fig_bl = go.Figure()
 
-    fig_bl.add_trace(go.Bar(
-        name="Confiance déclarée des dirigeants",
-        x=categories, y=conf_values,
-        marker=dict(color=TEAL, opacity=0.85, line=dict(color="rgba(0,0,0,0)")),
-        text=[f"<b>{v} %</b>" for v in conf_values],
-        textposition="outside",
-        textfont=dict(color=TEAL, size=14, family="JetBrains Mono"),
-        hovertemplate="<b>%{x}</b> · Confiance dirigeants<br>%{y} %<extra></extra>",
-    ))
-
-    fig_bl.add_trace(go.Bar(
-        name="Shadow AI réel (employés)",
-        x=categories, y=shadow_values,
-        marker=dict(color=AMBER, opacity=0.85, line=dict(color="rgba(0,0,0,0)")),
-        text=[f"<b>{v} %</b>" for v in shadow_values],
-        textposition="outside",
-        textfont=dict(color=AMBER, size=14, family="JetBrains Mono"),
-        hovertemplate="<b>%{x}</b> · Shadow AI réel<br>%{y} %<extra></extra>",
-    ))
-
-    for i, (cv, sv) in enumerate(zip(conf_values, shadow_values)):
+    # Zone de fond pour souligner l'écart
+    for i, (cat, cv, sv) in enumerate(zip(categories, conf_values, shadow_values)):
+        fig_bl.add_shape(
+            type="rect",
+            x0=sv, x1=cv, y0=i - 0.3, y1=i + 0.3,
+            fillcolor=f"rgba(224,88,88,0.07)", line_width=0,
+        )
+        # Tige reliant les deux points
+        fig_bl.add_shape(
+            type="line", x0=sv, x1=cv, y0=i, y1=i,
+            line=dict(color=BORDER, width=2.5),
+        )
+        # Étiquette d'écart centrée
         fig_bl.add_annotation(
-            x=i, y=max(cv, sv) + 7,
-            text=f"Écart : {cv - sv} pts",
+            x=(cv + sv) / 2, y=i, yshift=26,
+            text=f"<b>Écart : {cv - sv} pts</b>",
             showarrow=False,
-            font=dict(color=MUTED, size=11),
-            bgcolor=CARD, bordercolor=BORDER, borderpad=4,
+            font=dict(color=CORAL, size=12, family="JetBrains Mono"),
+            bgcolor=CARD, bordercolor=CORAL, borderpad=5, borderwidth=1,
         )
 
+    # Dots shadow AI réel (violet/amber)
+    fig_bl.add_trace(go.Scatter(
+        x=shadow_values, y=list(range(len(categories))),
+        mode="markers+text",
+        name="Shadow AI réel",
+        marker=dict(color=AMBER, size=22, line=dict(color=CARD, width=2.5),
+                    symbol="circle"),
+        text=[f"<b>{v} %</b>" for v in shadow_values],
+        textposition="middle left",
+        textfont=dict(color=AMBER, size=13, family="JetBrains Mono"),
+        hovertemplate="<b>%{customdata}</b><br>Shadow AI réel : <b>%{x} %</b><extra></extra>",
+        customdata=categories,
+    ))
+
+    # Dots confiance dirigeants (teal)
+    fig_bl.add_trace(go.Scatter(
+        x=conf_values, y=list(range(len(categories))),
+        mode="markers+text",
+        name="Confiance déclarée des dirigeants",
+        marker=dict(color=TEAL, size=22, line=dict(color=CARD, width=2.5),
+                    symbol="circle"),
+        text=[f"<b>{v} %</b>" for v in conf_values],
+        textposition="middle right",
+        textfont=dict(color=TEAL, size=13, family="JetBrains Mono"),
+        hovertemplate="<b>%{customdata}</b><br>Confiance dirigeants : <b>%{x} %</b><extra></extra>",
+        customdata=categories,
+    ))
+
     fig_bl.update_layout(
-        **layout(height=380, barmode="group", bargap=0.35, bargroupgap=0.08,
-                 legend=dict(orientation="h", y=1.1, x=0, font=dict(size=12))),
-        yaxis=dict(**ax(ticksuffix=" %", range=[0, 118], title_text="Pourcentage (%)")),
-        xaxis=dict(**ax(tickfont=dict(size=14, color=TEXT))),
+        **layout(height=310,
+                 legend=dict(orientation="h", y=1.18, x=0, font=dict(size=12))),
+        xaxis=dict(**ax(range=[30, 112], ticksuffix=" %",
+                        title_text="Pourcentage (%)")),
+        yaxis=dict(tickvals=list(range(len(categories))), ticktext=categories,
+                   **ax(tickfont=dict(size=14, color=TEXT))),
     )
 
     st.plotly_chart(fig_bl, width="stretch")
@@ -797,38 +826,70 @@ with col_pr:
 
     fig_pr = go.Figure()
 
+    # Ligne zéro
     fig_pr.add_vline(x=0, line=dict(color=BORDER, width=1.5))
 
-    fig_pr.add_trace(go.Bar(
-        x=df_p["value"], y=df_p["metric"],
-        orientation="h",
-        marker=dict(color=bar_colors, opacity=0.82, line=dict(color="rgba(0,0,0,0)")),
+    # Séparation PERÇU / MESURÉ — bande de fond
+    fig_pr.add_hrect(
+        y0=2.5, y1=4.6,
+        fillcolor=f"rgba(104,181,120,0.05)", line_width=0,
+    )
+    fig_pr.add_hrect(
+        y0=-0.5, y1=2.5,
+        fillcolor=f"rgba(224,88,88,0.05)", line_width=0,
+    )
+
+    # Tiges depuis 0
+    for yi, v, c in zip(range(len(df_p)), df_p["value"], bar_colors):
+        fig_pr.add_shape(
+            type="line", x0=0, x1=v, y0=yi, y1=yi,
+            line=dict(color=c, width=3, dash="solid"),
+        )
+
+    # Dots
+    fig_pr.add_trace(go.Scatter(
+        x=df_p["value"], y=list(range(len(df_p))),
+        mode="markers+text",
+        marker=dict(color=bar_colors, size=18,
+                    line=dict(color=CARD, width=2.5)),
         text=[f"<b>{'+' if v > 0 else ''}{v} %</b>" for v in df_p["value"]],
-        textposition=["outside" if v >= 0 else "inside" for v in df_p["value"]],
-        textfont=dict(color=TEXT, size=13, family="JetBrains Mono"),
-        customdata=df_p[["src", "value"]].values,
+        textposition=["middle right" if v >= 0 else "middle left" for v in df_p["value"]],
+        textfont=dict(color=TEXT, size=12, family="JetBrains Mono"),
+        customdata=df_p[["src"]].values,
         hovertemplate=(
-            "<b>%{y}</b><br>Variation : <b>%{x} %</b><br>Mesure : %{customdata[0]}<extra></extra>"
+            "<b>%{customdata[0]}</b><br>"
+            "Variation : <b>%{x} %</b><extra></extra>"
         ),
-        width=0.55,
+        showlegend=False,
     ))
 
-    # Séparation nette entre le déclaratif (perçu) et la télémétrie (mesuré)
-    fig_pr.add_hline(y=2.5, line=dict(color=BORDER, width=1, dash="dot"))
+    # Étiquettes de groupe
     fig_pr.add_annotation(
-        x=-118, y=4.4, text="<b>PERÇU</b> · déclaratif", showarrow=False,
-        xanchor="left", font=dict(color=SAGE, size=10.5),
+        x=125, y=3.7, text="PERÇU", showarrow=False, xanchor="right",
+        font=dict(color=SAGE, size=10, family="JetBrains Mono"),
     )
     fig_pr.add_annotation(
-        x=-118, y=2.15, text="<b>MESURÉ</b> · télémétrie", showarrow=False,
-        xanchor="left", font=dict(color=CORAL, size=10.5),
+        x=125, y=3.3, text="déclaratif par les devs", showarrow=False, xanchor="right",
+        font=dict(color=MUTED, size=9),
+    )
+    fig_pr.add_annotation(
+        x=125, y=1.7, text="MESURÉ", showarrow=False, xanchor="right",
+        font=dict(color=CORAL, size=10, family="JetBrains Mono"),
+    )
+    fig_pr.add_annotation(
+        x=125, y=1.3, text="télémétrie & RCT", showarrow=False, xanchor="right",
+        font=dict(color=MUTED, size=9),
     )
 
+    # Séparateur horizontal
+    fig_pr.add_hline(y=2.5, line=dict(color=BORDER, width=1, dash="dot"))
+
     fig_pr.update_layout(
-        **layout(height=400),
+        **layout(height=420),
         xaxis=dict(**ax(range=[-120, 140], ticksuffix=" %", title_text="Variation (%)",
                         zeroline=True, zerolinecolor=BORDER, zerolinewidth=1.5)),
-        yaxis=dict(**ax(tickfont=dict(size=12.5, color=TEXT))),
+        yaxis=dict(tickvals=list(range(len(df_p))), ticktext=df_p["metric"].tolist(),
+                   **ax(tickfont=dict(size=12.5, color=TEXT))),
     )
 
     st.plotly_chart(fig_pr, width="stretch")
@@ -935,7 +996,7 @@ with col_tr2:
         values=[45.7, 32.7, 21.6],
         hole=0.64,
         marker=dict(
-            colors=[AMBER, TEAL, LIGHT],
+            colors=[AMBER, TEAL, MUTED],
             line=dict(color=CARD, width=3),
         ),
         textinfo="label+percent",
@@ -964,18 +1025,18 @@ with col_tr2:
         mode="gauge+number",
         value=66,
         title=dict(text="Taux de frustration envers l'IA",
-                   font=dict(color=MUTED, size=12)),
+                   font=dict(color=TEXT, size=12)),
         number=dict(suffix=" %", font=dict(color=AMBER, size=38, family="JetBrains Mono")),
         gauge=dict(
-            axis=dict(range=[0, 100], tickcolor=LIGHT,
-                      tickfont=dict(color=LIGHT, size=10)),
+            axis=dict(range=[0, 100], tickcolor=MUTED,
+                      tickfont=dict(color=TEXT, size=10)),
             bar=dict(color=AMBER, thickness=0.25),
-            bgcolor=ALT,
+            bgcolor=BG,
             bordercolor=BORDER, borderwidth=1,
             steps=[
-                dict(range=[0,  33], color="#EEF9F4"),
-                dict(range=[33, 66], color="#FEF5E4"),
-                dict(range=[66, 100], color="#FEE8E6"),
+                dict(range=[0,  33], color="#1A2E24"),
+                dict(range=[33, 66], color="#2A2518"),
+                dict(range=[66, 100], color="#2E1A1A"),
             ],
             threshold=dict(line=dict(color=CORAL, width=3), thickness=0.8, value=66),
         ),
@@ -1020,42 +1081,55 @@ with col_rd:
     target_s  = [target[i]  for i in order]
     y_pos     = list(range(len(dims_s)))
 
+    # ── Radar / Toile d'araignée ──────────────────────────────────────────
+    dims_closed    = dims    + [dims[0]]
+    current_closed = current + [current[0]]
+    target_closed  = target  + [target[0]]
+
     fig_rd = go.Figure()
 
-    # Segment reliant la cible à la situation actuelle = l'écart à combler
-    for yi, c, t in zip(y_pos, current_s, target_s):
-        fig_rd.add_shape(
-            type="line", x0=t, x1=c, y0=yi, y1=yi,
-            line=dict(color=BORDER, width=2),
-        )
-        fig_rd.add_annotation(
-            x=(c + t) / 2, y=yi, yshift=12,
-            text=f"écart {c - t:.0f}", showarrow=False,
-            font=dict(color=LIGHT, size=9.5),
-        )
-
-    fig_rd.add_trace(go.Scatter(
-        x=target_s, y=y_pos,
-        mode="markers", name="Cible de bonne gouvernance",
-        marker=dict(color=TEAL, size=14, line=dict(color=CARD, width=2)),
-        hovertemplate="Cible : <b>%{x} / 100</b><extra></extra>",
+    # Zone remplie — situation actuelle
+    fig_rd.add_trace(go.Scatterpolar(
+        r=current_closed,
+        theta=dims_closed,
+        fill="toself",
+        fillcolor=f"rgba(160,124,232,0.18)",
+        line=dict(color=AMBER, width=2.5),
+        name="Situation actuelle",
+        hovertemplate="<b>%{theta}</b><br>Score actuel : <b>%{r:.0f} / 100</b><extra></extra>",
     ))
-    fig_rd.add_trace(go.Scatter(
-        x=current_s, y=y_pos,
-        mode="markers+text", name="Situation actuelle",
-        marker=dict(color=AMBER, size=17, line=dict(color=CARD, width=2)),
-        text=[f"<b>{v:.0f}</b>" for v in current_s],
-        textposition="middle right",
-        textfont=dict(color=TEXT, size=12, family="JetBrains Mono"),
-        hovertemplate="Actuel : <b>%{x:.0f} / 100</b><extra></extra>",
+
+    # Zone remplie — cible de bonne gouvernance
+    fig_rd.add_trace(go.Scatterpolar(
+        r=target_closed,
+        theta=dims_closed,
+        fill="toself",
+        fillcolor=f"rgba(79,196,190,0.12)",
+        line=dict(color=TEAL, width=2, dash="dot"),
+        name="Cible de bonne gouvernance",
+        hovertemplate="<b>%{theta}</b><br>Cible : <b>%{r:.0f} / 100</b><extra></extra>",
     ))
 
     fig_rd.update_layout(
-        **layout(height=460, margin=dict(t=60, b=40, l=240, r=45),
-                 legend=dict(orientation="h", y=1.12, x=0, font=dict(size=12))),
-        xaxis=dict(**ax(range=[0, 100], title_text="Score de préoccupation (0 → 100)")),
-        yaxis=dict(tickvals=y_pos, ticktext=dims_s,
-                   **ax(tickfont=dict(size=12, color=TEXT))),
+        **layout(height=480, margin=dict(t=60, b=60, l=60, r=60),
+                 legend=dict(orientation="h", y=-0.12, x=0.2, font=dict(size=12))),
+        polar=dict(
+            bgcolor=CARD,
+            radialaxis=dict(
+                visible=True,
+                range=[0, 100],
+                tickvals=[0, 25, 50, 75, 100],
+                tickfont=dict(color=LIGHT, size=9),
+                gridcolor=BORDER,
+                linecolor=BORDER,
+                angle=90,
+            ),
+            angularaxis=dict(
+                tickfont=dict(color=TEXT, size=11.5),
+                linecolor=BORDER,
+                gridcolor=BORDER,
+            ),
+        ),
     )
 
     st.plotly_chart(fig_rd, width="stretch")
@@ -1081,6 +1155,90 @@ with col_rd_r:
         f'<b>③ Mesurer</b> la productivité par télémétrie, pas par ressenti individuel.</p>',
         "sage",
     )
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ─── 09 - SANKEY FLUX ─────────────────────────────────────────────────────────
+# ══════════════════════════════════════════════════════════════════════════════
+
+section_header(
+    "09. Anatomie du risque",
+    "De l'usage à l'incident : 49 ingénieurs sur 100 empruntent la mauvaise voie",
+    "Sur 100 ingénieurs qui utilisent l'IA, 49 le font sans validation de leur employeur. "
+    "Parmi eux, 28 sont directement liés à un incident IT détecté. "
+    "Ce flux rend visible la chaîne shadow AI → exposition → incident, "
+    "rarement représentée en un seul graphique.",
+)
+
+col_sk, col_sk_r = st.columns([3, 1], gap="large")
+
+with col_sk:
+    fig_sk = go.Figure(go.Sankey(
+        arrangement="snap",
+        node=dict(
+            pad=24,
+            thickness=24,
+            line=dict(color=BORDER, width=0.8),
+            label=[
+                "100 ingénieurs",
+                "Utilisent l'IA",
+                "N'utilisent pas",
+                "Usage approuvé",
+                "Shadow AI",
+                "Incidents IT",
+                "Sans incident",
+            ],
+            color=[BLUE, TEAL, MUTED, SAGE, AMBER, CORAL, SAGE],
+            customdata=["100 %", "84 %", "16 %", "35 %", "49 %", "28 %", "56 %"],
+            hovertemplate="<b>%{label}</b> · %{customdata}<extra></extra>",
+        ),
+        link=dict(
+            source=[0, 0, 1, 1, 3, 3, 4, 4],
+            target=[1, 2, 3, 4, 5, 6, 5, 6],
+            value= [84, 16, 35, 49, 5, 30, 28, 21],
+            color=[
+                "rgba(79,196,190,0.20)",
+                "rgba(139,148,158,0.15)",
+                "rgba(104,181,120,0.25)",
+                "rgba(160,124,232,0.25)",
+                "rgba(224,88,88,0.20)",
+                "rgba(104,181,120,0.20)",
+                "rgba(224,88,88,0.38)",
+                "rgba(104,181,120,0.15)",
+            ],
+            hovertemplate=(
+                "<b>%{source.label}</b> → <b>%{target.label}</b>"
+                "<br>%{value} ingénieurs sur 100"
+                "<extra></extra>"
+            ),
+        ),
+    ))
+
+    fig_sk.update_layout(
+        **layout(height=460, margin=dict(t=20, b=20, l=10, r=10)),
+    )
+
+    st.plotly_chart(fig_sk, width="stretch")
+    src("Stack Overflow Dev Survey 2025 · Okta / Apprize360 2026 · BlackFog Survey")
+
+with col_sk_r:
+    st.markdown("<div style='height:2rem'></div>", unsafe_allow_html=True)
+    callout(
+        f'<strong>Le flux critique</strong>'
+        f'<p>Sur <span class="num">84</span> ingénieurs utilisant l\'IA, '
+        f'<span class="num amber">49</span> opèrent en shadow AI.<br><br>'
+        f'De ces 49, <span class="num coral">28</span> sont associés à un incident IT — '
+        f'soit plus d\'un sur deux.</p>',
+        "coral",
+    )
+    callout(
+        f'<strong>Les 5 incidents « approuvés »</strong>'
+        f'<p>Même les usages officiellement validés génèrent des incidents. '
+        f'La validation seule ne suffit pas : '
+        f'formation et périmètres d\'usage restent indispensables.</p>',
+        "blue",
+    )
+
+st.markdown("---")
 
 # ─── FOOTER ───────────────────────────────────────────────────────────────────
 
