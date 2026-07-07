@@ -331,7 +331,7 @@ def section_header(num, claim, deck):
     key = num.split(".")[0].strip()
     ico_name, ico_col = _SECTION_ICONS.get(key, ("info", MUTED))
     st.markdown(
-        f'<span class="section-num">{ic(ico_name, ico_col, 28, 4)}{num}</span>'
+        f'<span class="section-num">{ic(ico_name, ico_col, 36, 6)}{num}</span>'
         f'<p class="section-claim">{claim}</p>'
         f'<p class="section-deck">{deck}</p>',
         unsafe_allow_html=True,
@@ -343,7 +343,7 @@ def callout(body, variant="amber"):
     ico = ic(icon_map.get(variant, "info"),
              {"coral": CORAL, "teal": TEAL, "sage": SAGE,
               "blue": BLUE, "amber": AMBER, "": MUTED}.get(variant, MUTED),
-             13, 1)
+             16, 2)
     # injecte l'icône avant le premier tag enfant du body
     enriched = body.replace("<strong>", f"<strong>{ico}", 1)
     st.markdown(f'<div class="callout {variant}">{enriched}</div>', unsafe_allow_html=True)
@@ -358,7 +358,7 @@ def viz_tag(name, color=None):
         f'font-size:0.6rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;'
         f'color:{c};border:1px solid {c}44;background:{c}11;border-radius:4px;'
         f'padding:2px 9px;margin-bottom:0.4rem;">'
-        f'{ic("bar-chart", c, 11, 0)}&nbsp;{name}</span>',
+        f'{ic("bar-chart", c, 14, 0)}&nbsp;{name}</span>',
         unsafe_allow_html=True,
     )
 
